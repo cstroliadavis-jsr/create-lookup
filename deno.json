@@ -1,0 +1,24 @@
+{
+  "name": "@cstroliadavis/create-lookup",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+  "tasks": {
+    "check": "deno check mod.ts",
+    "cover": "deno coverage --html",
+    "dev": "deno task prep && deno test --doc --watch mod.ts",
+    "gen-docs": "deno doc --lint mod.ts && deno doc --name=\"cstroliadavis/create-lookup\" --html ./mod.ts",
+    "prep": "deno task check && deno lint --fix && deno fmt && deno task gen-docs",
+    "test": "deno test --doc --no-lock mod.ts"
+  },
+  "license": "MIT",
+  "fmt": {
+    "exclude": ["docs", "coverage"]
+  },
+  "lint": {
+    "exclude": ["docs", "coverage"]
+  },
+  "publish": {
+    "exclude": ["docs/", "coverage/", ".idea/", "./github", ".DS_Store"],
+    "include": ["mod.ts", "LICENSE", "README.md"]
+  }
+}
